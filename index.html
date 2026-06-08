@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Agriforests | Clinton McMillan — NbS, AFOLU Carbon & FSC Lead Auditor</title>
+<meta name="description" content="Agriforests — Nature-Based Solutions, AFOLU carbon project development, VERRA VCS PDD writing, FSC Lead Auditor, and SHEQ management specialist. South Africa & Sub-Saharan Africa."/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+
+/* ═══════════ TOKENS ═══════════ */
+:root {
+  --ink:      #0d1f14;
+  --forest:   #1a3a2a;
+  --moss:     #2d5a3d;
+  --fern:     #4a7a54;
+  --bamboo:   #6aaa3a;
+  --leaf:     #8ac050;
+  --gold:     #c8960a;
+  --sand:     #f5ede0;
+  --cream:    #fdfaf5;
+  --stone:    #e8e2d8;
+  --mid:      #9aaa9e;
+  --body:     #3a4a3e;
+  --white:    #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--body);
+  overflow-x: hidden;
+}
+
+/* ═══════════ SCROLLBAR ═══════════ */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--forest); }
+::-webkit-scrollbar-thumb { background: var(--bamboo); border-radius: 2px; }
+
+/* ═══════════ NAV ═══════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+nav.scrolled {
+  background: rgba(13,31,20,0.96);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(106,170,58,0.2);
+}
+.nav-brand {
+  display: flex; flex-direction: column;
+}
+.nav-logo {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--cream); letter-spacing: -0.02em;
+  line-height: 1;
+}
+.nav-logo span { color: var(--bamboo); }
+.nav-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem; color: rgba(200,220,200,0.5);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(200,220,200,0.75); text-decoration: none;
+  font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--bamboo); }
+.nav-cta {
+  background: var(--bamboo) !important; color: var(--forest) !important;
+  padding: 0.45rem 1.2rem; font-weight: 700 !important;
+  border-radius: 2px;
+}
+
+/* ═══════════ HERO ═══════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+/* Left: content */
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 9rem 4rem 5rem 5rem;
+  position: relative; z-index: 2;
+}
+
+/* Right: visual */
+.hero-right {
+  position: relative; overflow: hidden;
+}
+.hero-right-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #1a3a2a 0%, #0d1f14 50%, #2d5a3d 100%);
+}
+/* Bamboo stalk motif */
+.stalk-wrap {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; gap: 12px;
+  padding: 0 20px;
+  overflow: hidden;
+}
+.stalk {
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(106,170,58,0.18) 0%, rgba(45,90,61,0.08) 100%);
+  animation: sway 5s ease-in-out infinite;
+  transform-origin: bottom center;
+  position: relative;
+}
+.stalk::after {
+  content: '';
+  position: absolute; left: 0; right: 0;
+  height: 2px; background: rgba(106,170,58,0.12);
+  top: 35%;
+}
+@keyframes sway {
+  0%,100% { transform: rotate(-1deg) translateX(0); }
+  50%      { transform: rotate(1deg) translateX(3px); }
+}
+
+/* data card overlay */
+.hero-card {
+  position: absolute; bottom: 8%; left: -40px;
+  background: rgba(13,31,20,0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(106,170,58,0.2);
+  padding: 1.6rem 2rem;
+  width: 280px;
+  z-index: 3;
+}
+.hero-card-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--bamboo); margin-bottom: 0.8rem;
+}
+.hero-card-stat {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hero-card-stat:last-child { border: none; }
+.hcs-val {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--bamboo);
+}
+.hcs-desc { font-size: 0.72rem; color: rgba(200,220,200,0.55); }
+
+/* hero text */
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--bamboo); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.hero-eyebrow::before {
+  content: ''; width: 36px; height: 1px; background: var(--bamboo);
+}
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  line-height: 1.08; font-weight: 700;
+  color: var(--cream); letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+h1 em { font-style: italic; color: var(--bamboo); }
+.hero-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem; color: var(--gold);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+.hero-desc {
+  font-size: 1rem; line-height: 1.75; color: rgba(200,220,200,0.8);
+  max-width: 480px; margin-bottom: 2.5rem; font-weight: 300;
+}
+.hero-pills {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem;
+}
+.pill {
+  border: 1px solid rgba(106,170,58,0.35);
+  color: rgba(200,220,200,0.7);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.7rem; letter-spacing: 0.08em;
+  font-family: 'Space Mono', monospace;
+  border-radius: 1px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.pill:hover { border-color: var(--bamboo); color: var(--bamboo); }
+.hero-btns { display: flex; gap: 1rem; }
+.btn-p {
+  background: var(--bamboo); color: var(--forest);
+  padding: 0.8rem 2rem; font-weight: 700;
+  font-size: 0.85rem; border: none; cursor: pointer;
+  letter-spacing: 0.04em; border-radius: 2px; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+.btn-p:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(106,170,58,0.35); }
+.btn-o {
+  background: transparent; color: rgba(200,220,200,0.8);
+  padding: 0.8rem 2rem; font-weight: 500;
+  font-size: 0.85rem; border: 1px solid rgba(200,220,200,0.25);
+  cursor: pointer; letter-spacing: 0.04em; border-radius: 2px;
+  text-decoration: none; display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-o:hover { border-color: var(--bamboo); color: var(--bamboo); }
+
+/* diagonal slice bottom of hero */
+.hero::after {
+  content: '';
+  position: absolute; bottom: -1px; left: 0; right: 0;
+  height: 80px; background: var(--cream);
+  clip-path: polygon(0 70%, 100% 0, 100% 100%, 0 100%);
+  z-index: 4;
+}
+
+/* ═══════════ AWARDS RIBBON ═══════════ */
+.awards-ribbon {
+  background: var(--forest);
+  padding: 1.5rem 3rem;
+  display: flex; justify-content: center;
+  gap: 0; overflow: hidden;
+}
+.award-item {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0 2.5rem;
+  border-right: 1px solid rgba(106,170,58,0.15);
+}
+.award-item:last-child { border: none; }
+.award-icon { font-size: 1.3rem; flex-shrink: 0; }
+.award-text { }
+.award-name {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem; color: var(--bamboo);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 700;
+}
+.award-org { font-size: 0.68rem; color: rgba(200,220,200,0.45); margin-top: 1px; }
+
+/* ═══════════ SECTIONS ═══════════ */
+section { padding: 6rem 5rem; }
+.section-inner { max-width: 1160px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--bamboo); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--bamboo); }
+
+h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.15; color: var(--forest);
+  letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+h2 em { font-style: italic; color: var(--moss); }
+
+/* ═══════════ ABOUT ═══════════ */
+.about-section { background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start;
+}
+.about-text p {
+  font-size: 1rem; line-height: 1.82; color: var(--body);
+  margin-bottom: 1.2rem; font-weight: 300;
+}
+.about-text p strong { color: var(--forest); font-weight: 600; }
+
+.credentials-list { list-style: none; margin-top: 1rem; }
+.credentials-list li {
+  display: flex; gap: 0.7rem; align-items: flex-start;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--stone);
+  font-size: 0.88rem; color: var(--body);
+}
+.credentials-list li::before { content: '▸'; color: var(--bamboo); flex-shrink: 0; margin-top: 1px; }
+
+.about-sidebar { }
+.sidebar-card {
+  background: var(--forest); padding: 2rem;
+  margin-bottom: 1.5rem; position: relative; overflow: hidden;
+}
+.sidebar-card::before {
+  content: ''; position: absolute; top: -30px; right: -30px;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: rgba(106,170,58,0.07);
+}
+.sc-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bamboo); margin-bottom: 1rem; font-weight: 700;
+}
+.sc-content { font-size: 0.85rem; color: rgba(200,220,200,0.75); line-height: 1.7; }
+.sc-big {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.5rem; font-weight: 700; color: var(--bamboo);
+  line-height: 1;
+}
+.sc-unit { font-size: 0.75rem; color: var(--gold); font-family: 'Space Mono', monospace; }
+
+/* ═══════════ SERVICES ═══════════ */
+.services-section { background: var(--sand); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+  margin-top: 3rem;
+  background: var(--stone);
+}
+.service-card {
+  background: var(--cream);
+  padding: 2.5rem 2rem;
+  border-top: 3px solid transparent;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  cursor: default;
+}
+.service-card:hover {
+  border-color: var(--bamboo);
+  background: white;
+  transform: translateY(-3px);
+}
+.service-card:nth-child(2):hover { border-color: var(--gold); }
+.service-card:nth-child(3):hover { border-color: var(--fern); }
+.service-card:nth-child(4):hover { border-color: var(--moss); }
+.service-card:nth-child(5):hover { border-color: #4a8090; }
+.service-card:nth-child(6):hover { border-color: #7a5090; }
+.svc-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.svc-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--forest);
+  margin-bottom: 0.7rem; line-height: 1.25;
+}
+.svc-desc { font-size: 0.85rem; line-height: 1.7; color: var(--body); margin-bottom: 1rem; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.svc-tag {
+  background: var(--stone); color: var(--moss);
+  padding: 0.2rem 0.6rem; font-size: 0.65rem;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.06em; border-radius: 1px;
+}
+
+/* ═══════════ WORK HISTORY ═══════════ */
+.work-section { background: var(--cream); }
+.timeline { margin-top: 3rem; position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 11px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(to bottom, var(--bamboo), rgba(106,170,58,0.1));
+}
+.t-item {
+  display: grid; grid-template-columns: 24px 1fr;
+  gap: 0 2rem; margin-bottom: 3rem;
+  position: relative;
+}
+.t-dot {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--forest); border: 2px solid var(--bamboo);
+  flex-shrink: 0; margin-top: 3px; position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s;
+}
+.t-item:hover .t-dot { background: var(--bamboo); }
+.t-dot-inner { width: 8px; height: 8px; border-radius: 50%; background: var(--bamboo); transition: background 0.3s; }
+.t-item:hover .t-dot-inner { background: var(--forest); }
+.t-content { }
+.t-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 0.3rem; flex-wrap: wrap; gap: 0.5rem;
+}
+.t-role {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--forest);
+}
+.t-dates {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem; color: var(--bamboo);
+  letter-spacing: 0.08em; font-weight: 700;
+  white-space: nowrap;
+}
+.t-company {
+  font-size: 0.88rem; color: var(--moss); font-weight: 600;
+  margin-bottom: 0.2rem; font-style: italic;
+}
+.t-location { font-size: 0.78rem; color: var(--mid); margin-bottom: 0.9rem; }
+.t-body { font-size: 0.88rem; line-height: 1.72; color: var(--body); margin-bottom: 0.8rem; }
+.t-achievements { list-style: none; }
+.t-achievements li {
+  font-size: 0.85rem; line-height: 1.65; color: var(--body);
+  padding: 0.3rem 0 0.3rem 1.2rem; position: relative;
+  border-bottom: 1px solid rgba(232,226,216,0.6);
+}
+.t-achievements li:last-child { border: none; }
+.t-achievements li::before {
+  content: '▸'; color: var(--bamboo); font-size: 0.7rem;
+  position: absolute; left: 0; top: 0.45rem;
+}
+.t-achievements li strong { color: var(--forest); font-weight: 600; }
+
+/* ═══════════ KARONGA SHOWCASE ═══════════ */
+.karonga-section { background: var(--forest); }
+.karonga-section h2 { color: var(--cream); }
+.karonga-section h2 em { color: var(--bamboo); }
+.karonga-section .eyebrow { }
+.karonga-inner { max-width: 1160px; margin: 0 auto; }
+.karonga-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.karonga-desc p { font-size: 0.95rem; line-height: 1.8; color: rgba(200,220,200,0.8); margin-bottom: 1rem; }
+.karonga-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); }
+.k-stat {
+  background: rgba(255,255,255,0.03); padding: 1.5rem;
+  text-align: center;
+}
+.k-stat-val {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.8rem; font-weight: 700; color: var(--bamboo);
+  line-height: 1;
+}
+.k-stat-unit { font-size: 0.7rem; color: var(--gold); font-family: 'Space Mono', monospace; margin-top: 2px; }
+.k-stat-desc { font-size: 0.72rem; color: rgba(200,220,200,0.5); margin-top: 0.4rem; line-height: 1.4; }
+.methodology-row {
+  display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem;
+}
+.m-badge {
+  background: rgba(106,170,58,0.12);
+  border: 1px solid rgba(106,170,58,0.25);
+  color: var(--bamboo);
+  padding: 0.4rem 0.9rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.06em;
+  border-radius: 1px;
+}
+.karonga-note {
+  background: rgba(200,150,10,0.1);
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.2rem; margin-top: 1.5rem;
+  font-size: 0.82rem; color: rgba(200,220,200,0.65);
+  line-height: 1.65;
+}
+.karonga-note strong { color: var(--gold); }
+
+/* ═══════════ EXPERTISE ═══════════ */
+.expertise-section { background: var(--sand); }
+.expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.exp-card {
+  background: var(--cream); padding: 2rem;
+  border-left: 4px solid var(--bamboo);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.exp-card:nth-child(2) { border-color: var(--gold); }
+.exp-card:nth-child(3) { border-color: var(--fern); }
+.exp-card:nth-child(4) { border-color: var(--moss); }
+.exp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,58,42,0.1); }
+.exp-card h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem; font-weight: 700; color: var(--forest);
+  margin-bottom: 0.8rem;
+}
+.exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.exp-tag {
+  background: var(--stone); color: var(--moss);
+  padding: 0.25rem 0.65rem; font-size: 0.7rem;
+  font-family: 'Space Mono', monospace; letter-spacing: 0.04em;
+  border-radius: 1px;
+}
+
+/* ═══════════ TESTIMONIAL / QUOTE ═══════════ */
+.quote-section {
+  background: var(--ink); padding: 5rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.quote-section::before {
+  content: '\201C';
+  font-family: 'Libre Baskerville', serif;
+  font-size: 20rem; font-weight: 700;
+  color: rgba(106,170,58,0.04);
+  position: absolute; top: -3rem; left: 50%; transform: translateX(-50%);
+  line-height: 1; pointer-events: none;
+}
+.quote-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+.quote-text {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-style: italic; color: var(--cream);
+  line-height: 1.6; margin-bottom: 1.5rem;
+}
+.quote-attr {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem; color: var(--bamboo);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+
+/* ═══════════ CONTACT ═══════════ */
+.contact-section { background: var(--forest); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-left h2 { color: var(--cream); }
+.contact-left h2 em { color: var(--bamboo); }
+.contact-left p { font-size: 0.95rem; line-height: 1.8; color: rgba(200,220,200,0.7); margin-bottom: 2rem; }
+.contact-items { list-style: none; }
+.contact-items li {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.88rem;
+}
+.contact-items li:last-child { border: none; }
+.ci-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.ci-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--bamboo); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; font-weight: 700; }
+.ci-val { color: rgba(200,220,200,0.8); font-size: 0.88rem; }
+.ci-val a { color: rgba(200,220,200,0.8); text-decoration: none; transition: color 0.2s; }
+.ci-val a:hover { color: var(--bamboo); }
+
+.contact-right { }
+.services-enquiry {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(106,170,58,0.15);
+  padding: 2rem;
+}
+.se-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bamboo); margin-bottom: 1.5rem; font-weight: 700;
+}
+.se-item {
+  display: flex; gap: 0.8rem; align-items: flex-start;
+  padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.85rem; color: rgba(200,220,200,0.65);
+}
+.se-item:last-child { border: none; }
+.se-item::before { content: '▸'; color: var(--bamboo); flex-shrink: 0; font-size: 0.75rem; margin-top: 2px; }
+.contact-cta { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ═══════════ FOOTER ═══════════ */
+footer {
+  background: var(--ink); padding: 2.5rem 5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem; font-weight: 700; color: var(--bamboo);
+}
+.footer-brand span { color: var(--gold); }
+.footer-copy { font-size: 0.75rem; color: rgba(200,220,200,0.3); }
+.footer-standards { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.fs-tag {
+  background: rgba(106,170,58,0.08);
+  color: rgba(106,170,58,0.5);
+  padding: 0.25rem 0.6rem; font-size: 0.62rem;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.06em; border-radius: 1px;
+}
+
+/* ═══════════ REVEAL ═══════════ */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 8rem 1.5rem 5rem; }
+  section { padding: 4rem 1.5rem; }
+  .about-grid, .karonga-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .services-grid { grid-template-columns: 1fr; gap: 1px; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  .awards-ribbon { flex-wrap: wrap; gap: 1rem; }
+  .award-item { border: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <div class="nav-logo">Agri<span>forests</span></div>
+    <div class="nav-sub">Clinton McMillan · NbS & AFOLU Carbon</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Experience</a></li>
+    <li><a href="#karonga">Karonga Project</a></li>
+    <li><a href="#contact" class="nav-cta">Engage</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Nature-Based Solutions · Sub-Saharan Africa</div>
+    <h1>Turning <em>Land</em> into<br>Verified <em>Climate</em><br>Capital</h1>
+    <div class="hero-name">Clinton Houston McMillan · Founder, Agriforests</div>
+    <p class="hero-desc">
+      30+ years transforming African landscapes through AFOLU carbon project development, VERRA VCS documentation, FSC lead auditing, and SHEQ management — from small-holder communities in Malawi to commercial forestry across South Africa.
+    </p>
+    <div class="hero-pills">
+      <span class="pill">VERRA VM0047</span>
+      <span class="pill">FSC Lead Auditor</span>
+      <span class="pill">NEBOSH Cum Laude</span>
+      <span class="pill">NOSCAR Recipient</span>
+      <span class="pill">Plan Vivo</span>
+      <span class="pill">Gold Standard</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#services" class="btn-p">Explore Services</a>
+      <a href="#contact" class="btn-o">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="stalk-wrap" id="stalks"></div>
+    <div class="hero-card">
+      <div class="hero-card-label">Karonga Project Metrics</div>
+      <div class="hero-card-stat">
+        <div class="hcs-val">20,000</div>
+        <div class="hcs-desc">Hectares — scalable</div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="hcs-val">50M+</div>
+        <div class="hcs-desc">Tonnes CO₂e projected</div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="hcs-val">74%</div>
+        <div class="hcs-desc">NPV · 21.3% IRR</div>
+      </div>
+      <div class="hero-card-stat">
+        <div class="hcs-val">37,000</div>
+        <div class="hcs-desc">Smallholder beneficiaries</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS RIBBON -->
+<div class="awards-ribbon">
+  <div class="award-item">
+    <div class="award-icon">🏆</div>
+    <div class="award-text">
+      <div class="award-name">NOSCAR Award</div>
+      <div class="award-org">Top 3% of companies globally — NOSA</div>
+    </div>
+  </div>
+  <div class="award-item">
+    <div class="award-icon">🌍</div>
+    <div class="award-text">
+      <div class="award-name">International Risk Manager</div>
+      <div class="award-org">1 of 1,800 companies — NOSA</div>
+    </div>
+  </div>
+  <div class="award-item">
+    <div class="award-icon">🌿</div>
+    <div class="award-text">
+      <div class="award-name">Conservation Excellence</div>
+      <div class="award-org">Conservation Coordinator Award</div>
+    </div>
+  </div>
+  <div class="award-item">
+    <div class="award-icon">🎓</div>
+    <div class="award-text">
+      <div class="award-name">NEBOSH Cum Laude</div>
+      <div class="award-org">98% — First attempt</div>
+    </div>
+  </div>
+  <div class="award-item">
+    <div class="award-icon">✅</div>
+    <div class="award-text">
+      <div class="award-name">ASI Zero Findings</div>
+      <div class="award-org">FSC Lead Auditor — Eswatini</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="eyebrow">About Clinton McMillan</div>
+        <h2>30+ Years at the<br>Intersection of <em>Forest,<br>Community & Climate</em></h2>
+        <p>I am a Nature-Based Solutions practitioner and AFOLU carbon specialist based in KwaZulu-Natal, South Africa. Through <strong>Agriforests</strong>, I provide end-to-end expertise in VERRA VCS carbon project development — from first concept through to a pipeline-ready Project Design Document — alongside FSC certification management and SHEQ systems for forestry and NGO operations across sub-Saharan Africa.</p>
+        <p>My career spans commercial forestry at Mondi Forests and Masonite Africa, FSC lead auditing across 850,000 ha for SABS, and founding Agriforests to develop community-driven bamboo carbon projects that lift smallholder farmers permanently out of poverty. I am a <strong>Certified FSC Lead Auditor</strong> assessed by Assurance Services International with zero corrective actions — one of the highest standards achievable in the profession.</p>
+        <p>I bring a rare combination of <strong>technical carbon expertise, deep forestry credentials, crisis-tested SHEQ leadership, and community engagement experience</strong> — making me uniquely capable of delivering complex, multi-stakeholder NbS projects that meet both market standards and community needs.</p>
+        <ul class="credentials-list">
+          <li>Certified FSC Lead Auditor — Soil Association, UK (FM, CoC & PEFC) — ASI-assessed, zero findings</li>
+          <li>NEBOSH International Certificate — Cum Laude, 98%, first attempt</li>
+          <li>VERRA VM0047 PDD — 255-page pipeline-ready document produced independently</li>
+          <li>National Diploma in Forestry — Saasveld (3rd nationally, 86%, 21 distinctions)</li>
+          <li>Guest Lecturer — Masonite International HQ, Chicago; Fortcox Agricultural College</li>
+          <li>Active member: SAFI · Forestry SA · NOSA · GICA · Climate Change Professionals Group</li>
+        </ul>
+      </div>
+      <div class="about-sidebar reveal">
+        <div class="sidebar-card">
+          <div class="sc-label">Career Scale</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div><div class="sc-big">30+</div><div class="sc-unit">Years</div><div style="font-size:0.7rem;color:rgba(200,220,200,0.4);margin-top:4px;">Senior experience</div></div>
+            <div><div class="sc-big">850K</div><div class="sc-unit">Hectares</div><div style="font-size:0.7rem;color:rgba(200,220,200,0.4);margin-top:4px;">FSC audit portfolio</div></div>
+            <div><div class="sc-big">151</div><div class="sc-unit">Audits</div><div style="font-size:0.7rem;color:rgba(200,220,200,0.4);margin-top:4px;">Zero corrective actions</div></div>
+            <div><div class="sc-big">1,900</div><div class="sc-unit">Employees</div><div style="font-size:0.7rem;color:rgba(200,220,200,0.4);margin-top:4px;">Managed at peak</div></div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sc-label">Languages</div>
+          <div class="sc-content">
+            English — Fluent<br>
+            Afrikaans — Proficient<br>
+            isiZulu — Conversational<br>
+            Seswati — Conversational
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sc-label">Operating Geography</div>
+          <div class="sc-content">
+            KwaZulu-Natal · Mpumalanga<br>
+            Eswatini · Malawi<br>
+            Sub-Saharan Africa (Remote & On-site)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What Agriforests Offers</div>
+    <h2 class="reveal">Specialist Services for <em>Climate,<br>Forest & Community</em> Projects</h2>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="svc-icon">🌿</div>
+        <div class="svc-title">AFOLU Carbon Project Development</div>
+        <p class="svc-desc">End-to-end VERRA VCS, Gold Standard, and Plan Vivo project design — from concept validation and baseline assessment through to a pipeline-ready, investor-grade Project Design Document. Includes MRV plan, additionality assessment, leakage analysis, and ex ante carbon modelling.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">VERRA VM0047</span><span class="svc-tag">PDD Writing</span><span class="svc-tag">MRV Plan</span><span class="svc-tag">Ex Ante Modelling</span><span class="svc-tag">Bamboo Carbon</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="svc-icon">💹</div>
+        <div class="svc-title">Carbon Financial Modelling</div>
+        <p class="svc-desc">Investor-ready 20–30 year financial models including bamboo growth yield models, NPV/IRR/ROI analysis, ex ante carbon credit revenue projections, and community benefit-sharing structures. Built in Excel with full scenario sensitivity (conservative, mid, optimistic).</p>
+        <div class="svc-tags">
+          <span class="svc-tag">NPV / IRR</span><span class="svc-tag">30-Year P&L</span><span class="svc-tag">Growth Yield Model</span><span class="svc-tag">INBAR Data</span><span class="svc-tag">Scenario Analysis</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="svc-icon">🌳</div>
+        <div class="svc-title">FSC Certification & Forest Management</div>
+        <p class="svc-desc">FSC Sustainable Forest Management and Chain of Custody certification system design, implementation, and internal audit readiness. HCV identification and management planning across all 6 HCV categories. PEFC programme management. Biodiversity and wetland management plans.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">FSC FM & CoC</span><span class="svc-tag">PEFC</span><span class="svc-tag">HCV 1–6</span><span class="svc-tag">Biodiversity Plans</span><span class="svc-tag">Wetland Rehab</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="svc-icon">🛡️</div>
+        <div class="svc-title">SHEQ Management Systems</div>
+        <p class="svc-desc">Design, implementation, and audit of integrated SHE Management Systems for forestry operations, NGO field programmes, and manufacturing facilities. ISO 14001:2015 implementation, NOSA audit preparation, behaviour-based safety programme design, and executive KPI dashboard development.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">ISO 14001</span><span class="svc-tag">NOSA</span><span class="svc-tag">NEBOSH</span><span class="svc-tag">Risk Assessment</span><span class="svc-tag">Fire Risk</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="svc-icon">🤝</div>
+        <div class="svc-title">Community & Stakeholder Engagement</div>
+        <p class="svc-desc">FPIC documentation, Traditional Authority and District Council engagement, community governance structure design, benefit-sharing model development, and project committee architecture. Proven track record engaging chiefs, councils, and government ministries in East and Southern Africa.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">FPIC</span><span class="svc-tag">TA Engagement</span><span class="svc-tag">Benefit Sharing</span><span class="svc-tag">Governance Design</span><span class="svc-tag">VERRA Compliance</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="svc-icon">🗺️</div>
+        <div class="svc-title">Remote Sensing & Land Analysis</div>
+        <p class="svc-desc">Desktop land eligibility assessment using Global Forest Watch, SOTERSAF soil mapping, Google Earth, and GIS shapefiles. Species-appropriate agroecological zone analysis for bamboo and agroforestry projects. Leakage belt delineation and baseline land-use history documentation.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Global Forest Watch</span><span class="svc-tag">SOTERSAF</span><span class="svc-tag">GIS Shapefiles</span><span class="svc-tag">Google Earth</span><span class="svc-tag">Species Selection</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WORK HISTORY TIMELINE -->
+<section id="work" class="work-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Professional Experience</div>
+    <h2 class="reveal">Three Decades of <em>Forestry,<br>Carbon & Conservation</em> Leadership</h2>
+    <div class="timeline">
+
+      <div class="t-item reveal">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div class="t-content">
+          <div class="t-header">
+            <div class="t-role">Founder & Principal Consultant — NbS, AFOLU Carbon & SHEQ</div>
+            <div class="t-dates">2022 – Present</div>
+          </div>
+          <div class="t-company">Agriforests</div>
+          <div class="t-location">KwaZulu-Natal, South Africa · Remote — Sub-Saharan Africa</div>
+          <p class="t-body">Social enterprise delivering professional AFOLU documentation, carbon financial models, and SHEQ management systems to NGOs, communities, and commercial clients across East and Southern Africa.</p>
+          <ul class="t-achievements">
+            <li>Designed a <strong>255-page pipeline-ready VERRA VCS VM0047 PDD</strong> for the Karonga Basin Bamboo Carbon Credit Project — 20,000 ha targeting 50M+ tCO₂e for 37,000 smallholder farmers in Malawi — entirely pro bono over 3 years with full IP retained</li>
+            <li>Built a <strong>20-year bamboo growth yield and financial model</strong> in Excel — NPV 74%, IRR 21.3% at conservative $10/t-CO₂e carbon price, projecting 75t CO₂e/ha/year for Dendrocalamus asper and Bambusa vulgaris</li>
+            <li>Secured <strong>dual Letters of Endorsement</strong> from Chief Paramount Kyungu (Karonga Traditional Authority) and Karonga District Council through prolonged multi-visit diplomatic engagement</li>
+            <li>Designed tiered <strong>community benefit-sharing model</strong> allocating 40% net revenue to social infrastructure and farmer income — scaled by bamboo culms planted — with full Project Committee, Financial Committee, and Traditional Authority governance structures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div class="t-content">
+          <div class="t-header">
+            <div class="t-role">FSC Lead Auditor — Sustainable Forest Management & CoC</div>
+            <div class="t-dates">2018 – 2021</div>
+          </div>
+          <div class="t-company">South African Bureau of Standards (SABS) — Licensed by Soil Association, UK</div>
+          <div class="t-location">Pretoria, South Africa · Local & International</div>
+          <ul class="t-achievements">
+            <li><strong>51 clients · 850,000 ha · 151 audits</strong> — zero corrective actions in ASI International Lead Auditor witness assessment in Eswatini across all 10 FSC Principles</li>
+            <li>Generated <strong>R5M in new PEFC certification revenue</strong> — onboarding a major SA forestry company onto a 5-year audit lifecycle</li>
+            <li>Managed technically complex <strong>multi-site FSC Chain of Custody audit</strong> — navigating controlled wood categories, deforestation-free source verification, and full supply chain due diligence</li>
+            <li>Designed insurance compliance systems delivering <strong>R1.8M in premium reductions</strong> across client operations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div class="t-content">
+          <div class="t-header">
+            <div class="t-role">Safety, Health & Environmental Manager (Contract)</div>
+            <div class="t-dates">2017 – 2018</div>
+          </div>
+          <div class="t-company">Tongaat Hulett Felixton Sugar Mill</div>
+          <div class="t-location">Empangeni, KwaZulu-Natal · 420 employees · 11 departments</div>
+          <ul class="t-achievements">
+            <li>Raised NOSA audit score from <strong>92% to 94% in 12 months</strong> — highest in plant history — by rebuilding procedures, governance, and legal compliance from the ground up</li>
+            <li>Achieved <strong>ISO 14001:2015 certification</strong> and secured boiler atmospheric emission licence under NEMA with the Department of Environmental Affairs</li>
+            <li>Spearheaded <strong>NOSA Integrated SHE Software (SAP-linked)</strong> — designed a single-page executive dashboard tracking DIFR, near misses, emissions, water usage, and KPIs across 25 departments</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div class="t-content">
+          <div class="t-header">
+            <div class="t-role">Corporate SHEQ & FSC Certification Manager</div>
+            <div class="t-dates">2002 – 2017 · 15 Years</div>
+          </div>
+          <div class="t-company">Masonite (Africa) Limited — Masonite International Division</div>
+          <div class="t-location">KwaZulu-Natal · 9 sites · 22,000 ha · 1,900 employees · ZAR 18M+ SHE budget</div>
+          <ul class="t-achievements">
+            <li>Reduced DIFR from <strong>1.2 to zero in 3 years</strong> — achieving 100% elimination of disabling injuries and R450,000 reduction in worker's compensation costs through a bespoke behaviour-based safety culture programme</li>
+            <li>Led crisis management of a <strong>50-tonne gas producer explosion</strong> — 5 serious burn injuries, 11-month factory closure, complete explosion-proof machinery redesign with specialist engineers</li>
+            <li>Managed <strong>all 6 HCV categories</strong> across 22,000 ha — commissioning ecologists, grassland specialists, wetland delineators, and Ezemvelo KZN Wildlife; protected 1,600 ha in partnership with SANBI Grasslands Programme</li>
+            <li>Reduced insurance premiums by <strong>R1.2M</strong> through integrated fire, property damage, and emergency planning compliance — verified by independent broker audit</li>
+            <li><strong>Guest lectured at Masonite International HQ, Chicago</strong> — presenting to global executives on Cultural Impacts on Safety in South Africa</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="t-dot"><div class="t-dot-inner"></div></div>
+        <div class="t-content">
+          <div class="t-header">
+            <div class="t-role">Forestry Manager</div>
+            <div class="t-dates">1993 – 2002 · 9 Years</div>
+          </div>
+          <div class="t-company">Mondi Forests</div>
+          <div class="t-location">Mpumalanga & Zululand · 4 sites · 30,000 ha · 1,200 employees · ZAR 120M budget</div>
+          <ul class="t-achievements">
+            <li>Managed <strong>ZAR 120M annual operating budget</strong> and ZAR 210M standing timber value in eucalyptus, pinus, and black wattle species across 30,000 ha and 1,200 employees</li>
+            <li>Member of the <strong>pioneering FSC certification team at Mondi Forests</strong> — designed the FSC Management System from inception, overcoming institutional resistance from experienced forestry managers</li>
+            <li>Established on-site nurseries producing <strong>1,666,000 seedlings per year</strong>; managed a 900 km road network including major upgrades, river crossings, and conservation closures</li>
+            <li>Built direct trust-based labour relations with 1,200 employees in post-apartheid KZN — leveraging <strong>isiZulu language ability</strong> to create safe dialogue forums and drive safety culture</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KARONGA SHOWCASE -->
+<section id="karonga" class="karonga-section">
+  <div class="karonga-inner">
+    <div class="eyebrow reveal">Flagship Project</div>
+    <h2 class="reveal">Karonga Basin Bamboo<br><em>Carbon Credit Project</em> — Malawi</h2>
+    <div class="karonga-grid">
+      <div class="karonga-desc reveal">
+        <p>Commissioned by the Small Scale Livestock and Livelihoods Programme (SSLLP) — an established Malawi NGO — Agriforests designed a complete VERRA AFOLU carbon project targeting 37,000 smallholder farmers across the Karonga District of northern Malawi. Built entirely pro bono over three years with full intellectual property retained by Agriforests.</p>
+        <p>The project applies <strong>VM0047 methodology</strong> with <em>Dendrocalamus asper</em> (highland) and <em>Bambusa vulgaris</em> (lowland/drought-tolerant) — selected from INBAR's global species database — projecting 75 tCO₂e/ha/year at a 20% buffer zone deduction. Land eligibility was established using Global Forest Watch and SOTERSAF soil mapping to document over 10 years of uninterrupted agricultural land use with no evidence of recent deforestation.</p>
+        <p>Governance legitimacy was secured through a prolonged engagement process resulting in <strong>dual Letters of Endorsement</strong> from Chief Paramount Kyungu of the Karonga District Traditional Authority and the Karonga District Council — a rare and significant achievement in AFOLU project development.</p>
+        <div class="methodology-row">
+          <span class="m-badge">VERRA VCS VM0047</span>
+          <span class="m-badge">255-Page PDD</span>
+          <span class="m-badge">MRV Plan</span>
+          <span class="m-badge">INBAR Species Data</span>
+          <span class="m-badge">GFW Remote Sensing</span>
+          <span class="m-badge">SOTERSAF Soil Mapping</span>
+          <span class="m-badge">GIS Shapefiles</span>
+          <span class="m-badge">Chief Kyungu Endorsement</span>
+        </div>
+        <div class="karonga-note">
+          <strong>Current Status:</strong> Project is pipeline-ready and in a holding pattern pending proof-of-concept impact investment. The primary challenge is the scale required for financial break-even (~2,500 ha) and the absence of an established market track record for a startup project developer. Budget has been provisioned for on-site mapping of the first 100 ha. All IP is retained by Agriforests. Investors and NGO partners are invited to engage.
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="karonga-stats">
+          <div class="k-stat">
+            <div class="k-stat-val">20,000</div>
+            <div class="k-stat-unit">ha target</div>
+            <div class="k-stat-desc">Scalable over 20 years from 3,000 ha identified</div>
+          </div>
+          <div class="k-stat">
+            <div class="k-stat-val">50M+</div>
+            <div class="k-stat-unit">tCO₂e</div>
+            <div class="k-stat-desc">Projected sequestration over project lifetime</div>
+          </div>
+          <div class="k-stat">
+            <div class="k-stat-val">75t</div>
+            <div class="k-stat-unit">CO₂e/ha/yr</div>
+            <div class="k-stat-desc">Projected rate at 20% buffer deduction</div>
+          </div>
+          <div class="k-stat">
+            <div class="k-stat-val">37,000</div>
+            <div class="k-stat-unit">beneficiaries</div>
+            <div class="k-stat-desc">Smallholder farming families</div>
+          </div>
+          <div class="k-stat">
+            <div class="k-stat-val">74%</div>
+            <div class="k-stat-unit">NPV</div>
+            <div class="k-stat-desc">At conservative $10/t-CO₂e carbon price</div>
+          </div>
+          <div class="k-stat">
+            <div class="k-stat-val">21.3%</div>
+            <div class="k-stat-unit">IRR</div>
+            <div class="k-stat-desc">20-year financial model</div>
+          </div>
+          <div class="k-stat">
+            <div class="k-stat-val">40%</div>
+            <div class="k-stat-unit">community</div>
+            <div class="k-stat-desc">Net revenue allocated to farmers & social infrastructure</div>
+          </div>
+          <div class="k-stat">
+            <div class="k-stat-val">255</div>
+            <div class="k-stat-unit">page PDD</div>
+            <div class="k-stat-desc">Pipeline-ready VERRA documentation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE AREAS -->
+<section class="expertise-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Technical Expertise</div>
+    <h2 class="reveal">Deep Competency Across<br><em>Four Specialist Domains</em></h2>
+    <div class="expertise-grid">
+      <div class="exp-card reveal">
+        <h3>Carbon & Nature-Based Solutions</h3>
+        <div class="exp-tags">
+          <span class="exp-tag">AFOLU Carbon</span><span class="exp-tag">VERRA VCS</span><span class="exp-tag">VM0047</span><span class="exp-tag">Gold Standard</span><span class="exp-tag">Plan Vivo</span><span class="exp-tag">PDD Writing</span><span class="exp-tag">MRV Design</span><span class="exp-tag">Additionality</span><span class="exp-tag">Leakage Analysis</span><span class="exp-tag">Ex Ante Modelling</span><span class="exp-tag">Bamboo Carbon</span><span class="exp-tag">ARR</span><span class="exp-tag">IFM</span><span class="exp-tag">Voluntary Carbon Market</span>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <h3>SHEQ Management Systems</h3>
+        <div class="exp-tags">
+          <span class="exp-tag">ISO 14001:2015</span><span class="exp-tag">ISO 45001</span><span class="exp-tag">NEBOSH</span><span class="exp-tag">NOSA</span><span class="exp-tag">NOSCAR</span><span class="exp-tag">SAP SHE</span><span class="exp-tag">Behaviour-Based Safety</span><span class="exp-tag">Fire Risk</span><span class="exp-tag">NEMA Licencing</span><span class="exp-tag">Legal Compliance</span><span class="exp-tag">Incident Investigation</span><span class="exp-tag">KPI Dashboards</span>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <h3>Forestry & FSC Certification</h3>
+        <div class="exp-tags">
+          <span class="exp-tag">FSC Lead Auditor</span><span class="exp-tag">FSC FM & CoC</span><span class="exp-tag">PEFC</span><span class="exp-tag">ASI-assessed</span><span class="exp-tag">HCV 1–6</span><span class="exp-tag">Silviculture</span><span class="exp-tag">Forest Inventory</span><span class="exp-tag">MicroForest</span><span class="exp-tag">Growth Modelling</span><span class="exp-tag">Timber Sales</span><span class="exp-tag">Nursery Management</span><span class="exp-tag">Road Engineering</span>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <h3>Finance, GIS & Community Engagement</h3>
+        <div class="exp-tags">
+          <span class="exp-tag">NPV / IRR / ROI</span><span class="exp-tag">30-Year P&L</span><span class="exp-tag">Carbon Modelling</span><span class="exp-tag">Global Forest Watch</span><span class="exp-tag">SOTERSAF</span><span class="exp-tag">GIS Shapefiles</span><span class="exp-tag">FPIC</span><span class="exp-tag">TA Engagement</span><span class="exp-tag">Benefit Sharing</span><span class="exp-tag">Governance Design</span><span class="exp-tag">INBAR Species Data</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-inner">
+    <p class="quote-text">"I produce quality expertise when given the freedom to do so. The most impactful work of my career has always come from trust, autonomy, and the conviction that communities — not just corporations — deserve access to the tools of the carbon economy."</p>
+    <div class="quote-attr">— Clinton Houston McMillan · Founder, Agriforests · KwaZulu-Natal, South Africa</div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="eyebrow">Get In Touch</div>
+        <h2>Ready to build your<br><em>next NbS project</em></h2>
+        <p>Whether you need a VERRA-compliant PDD, a carbon financial model, an FSC audit readiness programme, or a SHEQ system for your forestry or NGO operation — I am available for senior advisory, contract, and partnership engagements across sub-Saharan Africa.</p>
+        <ul class="contact-items">
+          <li>
+            <div class="ci-icon">👤</div>
+            <div><div class="ci-label">Principal</div><div class="ci-val">Clinton Houston McMillan</div></div>
+          </li>
+          <li>
+            <div class="ci-icon">🏢</div>
+            <div><div class="ci-label">Organisation</div><div class="ci-val">Agriforests (Sole Proprietor)</div></div>
+          </li>
+          <li>
+            <div class="ci-icon">✉️</div>
+            <div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:clint@agriforests.co.za">clint@agriforests.co.za</a></div></div>
+          </li>
+          <li>
+            <div class="ci-icon">📞</div>
+            <div><div class="ci-label">Phone / WhatsApp</div><div class="ci-val"><a href="tel:+27646541423">+27 (0) 64 654 1423</a></div></div>
+          </li>
+          <li>
+            <div class="ci-icon">📍</div>
+            <div><div class="ci-label">Base Location</div><div class="ci-val">KwaZulu-Natal, South Africa</div></div>
+          </li>
+          <li>
+            <div class="ci-icon">🌍</div>
+            <div><div class="ci-label">Operating Region</div><div class="ci-val">Sub-Saharan Africa (Remote & On-site)</div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="contact-right reveal">
+        <div class="services-enquiry">
+          <div class="se-title">I can assist with</div>
+          <div class="se-item">VERRA VCS / VM0047 PDD development and carbon project design</div>
+          <div class="se-item">Bamboo growth yield modelling and 20–30 year carbon financial models</div>
+          <div class="se-item">MRV plan design and monitoring framework development</div>
+          <div class="se-item">FSC FM and CoC certification system design and audit preparation</div>
+          <div class="se-item">HCV identification, biodiversity management, and wetland rehabilitation</div>
+          <div class="se-item">SHEQ Management Systems — ISO 14001, NOSA, NEBOSH-aligned</div>
+          <div class="se-item">Community engagement, FPIC documentation, and benefit-sharing design</div>
+          <div class="se-item">NGO partnership for AFOLU project co-development</div>
+          <div class="se-item">Senior SHEQ, NbS, or forestry advisory (employed or contract)</div>
+        </div>
+        <div class="contact-cta">
+          <a href="mailto:clint@agriforests.co.za" class="btn-p">Send an Enquiry</a>
+          <a href="tel:+27646541423" class="btn-o">Call / WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Agri<span>forests</span> · Clinton McMillan</div>
+  <div class="footer-copy">© 2026 Agriforests · KwaZulu-Natal, South Africa · clint@agriforests.co.za</div>
+  <div class="footer-standards">
+    <span class="fs-tag">VERRA VCS</span>
+    <span class="fs-tag">VM0047</span>
+    <span class="fs-tag">Gold Standard</span>
+    <span class="fs-tag">Plan Vivo</span>
+    <span class="fs-tag">FSC FM & CoC</span>
+    <span class="fs-tag">PEFC</span>
+    <span class="fs-tag">ISO 14001</span>
+    <span class="fs-tag">NEBOSH</span>
+    <span class="fs-tag">NOSA / NOSCAR</span>
+    <span class="fs-tag">INBAR</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Generate bamboo stalks
+const wrap = document.getElementById('stalks');
+const stalkData = [
+  {h:'88%',w:14,d:0},    {h:'110%',w:20,d:0.4}, {h:'72%',w:11,d:0.8},
+  {h:'95%',w:18,d:0.2},  {h:'80%',w:14,d:1.2},  {h:'105%',w:22,d:0.6},
+  {h:'68%',w:12,d:1.5},  {h:'92%',w:17,d:0.3},  {h:'115%',w:24,d:0.9},
+  {h:'78%',w:15,d:1.3},  {h:'98%',w:19,d:0.7},  {h:'85%',w:13,d:1.8},
+];
+stalkData.forEach(s => {
+  const el = document.createElement('div');
+  el.className = 'stalk';
+  el.style.cssText = `height:${s.h};width:${s.w}px;animation-delay:${s.d}s;`;
+  wrap.appendChild(el);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
